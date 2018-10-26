@@ -23,6 +23,7 @@ tc_data.State = tc_data.State.apply(lambda x: x[1:])
 len(tc_data)
 
 # the box plot before removing mileage outliers
+#Figure 1.2.1
 box_plo2 = tc_data.boxplot(column=["mile_per_year"])
 plt.ylabel("Mileage per Year")
 fig2 = np.asarray(box_plo2).reshape(-1)[0].get_figure()
@@ -45,6 +46,7 @@ len(data)
 
 
 # the box plot after removing mileage outliers
+#Figure 1.2.2
 box_plo22 = data.boxplot(column=["mile_per_year"])
 plt.ylabel('Mileage per Year')
 fig3 = np.asarray(box_plo22).reshape(-1)[0].get_figure()
@@ -55,7 +57,7 @@ plt.show()
 data=data[(data.Make!="Hyundai")|((data.Make=="Hyundai")&((data.Price<49000)|(data.Price>99990)))]
 
 data22=data[data.Make=="Hyundai"]
-#are=()
+#Figure 1.2.3
 plt.scatter(x="Mileage",y="Price",data=data22)
 plt.title("Mileage vs. Price Scatterplot for Hyundai before data cleaning")
 plt.xlabel("Mileage of the car")
@@ -69,6 +71,8 @@ car_expensive= data[data.Price >=99990]
 # the length of expensive cars
 len(car_expensive)
 
+
+#Figure 1.2.4
 xy=car_expensive.groupby('Make').count().reset_index(drop=False)[["Make","Id"]]
 xy=xy.sort_values(by='Id', ascending=True)
 y_pos = np.arange(len(xy["Id"]))
@@ -80,8 +84,7 @@ plt.yticks(y_pos, xy["Make"],size="small")
 plt.xlabel('Counts')
 plt.title('Brands of Cars with a price >= 99990')
 for i, v in enumerate(xy["Id"]):
-    ax.text(v+1 , i-0.5 , str(v), color='red',fontsize=8)
-    
+    ax.text(v+1 , i-0.5 , str(v), color='red',fontsize=8) 
 plt.show()
 #len(car_expensive["Make"].unique())
 len(data)
@@ -97,7 +100,7 @@ data = data[(data.Price <99990) | ((data.Price>=99990)  &(data.Make!="Honda")&
 
 len(data)   
     
-
+#Figure 1.2.5
 data33=data[data.Make=="Hyundai"]
 plt.scatter(x="Mileage",y="Price",data=data33)
 plt.title("Mileage vs. Price Scatterplot for Hyundai after data cleaning")
