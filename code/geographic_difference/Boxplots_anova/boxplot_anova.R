@@ -1,4 +1,6 @@
 library(ggplot2)
+# read the data
+dt_truecar=read.csv("TrueCar_cleaned.csv")
 # Change outlier, color, shape and size
 p<-ggplot(dt_truecar, aes(x=State, y=Price)) + 
   geom_boxplot(outlier.colour="grey", 
