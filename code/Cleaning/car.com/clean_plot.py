@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
+#Figure 1.1.1
 df=pd.read_csv("ndf.csv",encoding="latin1")
 total=len(df)
 print(df.info())
@@ -21,7 +21,7 @@ plt.title("Distribution of mileage/year before clean", fontsize=20)
 plt.show()
 
 
-
+#Figure 1.1.2
 q=nndf['mpy'].describe()
 ho=q[6]+1.5*(q[6]-q[4])
 data = nndf[nndf.mpy <=ho]
@@ -36,7 +36,7 @@ print("mile : "+str(num_mile))
 data = data.drop(["Unnamed: 0"],axis=1)
 #print((ndata))
 #ndata.to_csv("cleaned_carscom.csv")
-
+#Figure 1.1.3
 l=[num_na,num_dup,num_mile,len(data)]
 print(l)
 data.to_csv("cleaned_carscom.csv")
