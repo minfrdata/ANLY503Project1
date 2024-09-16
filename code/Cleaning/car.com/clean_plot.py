@@ -30,7 +30,7 @@ data=data[data.mileage>1000]
 sns.distplot(data.mpy)
 plt.title("Distribution of mileage/year after clean", fontsize=20)
 plt.show()
-
+#Figure 1.1.3
 num_mile=len(nndf)-len(data)
 print("mile : "+str(num_mile))
 data = data.drop(["Unnamed: 0"],axis=1)
